@@ -1,0 +1,11 @@
+---
+- name: Clone dokku
+  git:
+    repo: "https://github.com/progrium/dokku.git"
+    dest: "/home/{{ user.name }}/dokku"
+  become: yes
+  become_user: "{{ user.name }}"
+
+- name: make install dokku
+  command: "make install chdir=/home/{{ user.name }}/dokku creates=/var/lib/dokku"
+  become: yes

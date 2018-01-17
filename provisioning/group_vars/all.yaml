@@ -1,0 +1,4 @@
+user:
+  name: dokku
+  password: "$1$yZgNO/sG$7P66WgL0jrxw.Wh6aDnNZ1"
+  groups: sudo

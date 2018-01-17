@@ -1,0 +1,17 @@
+---
+- name: users exist
+  user:
+    name: "{{ user.name }}"
+    state: present
+    password: "{{ user.password }}"
+    groups: "{{ user.groups }}"
+  tags: users
+
+- name: .ssh directory exists
+  file:
+    path: "/home/{{ user.name }}/.ssh"
+    state: directory
+    owner: "{{ user.name }}"
+    group: "{{ user.name }}"
+    mode: 0700
+  tags: users
